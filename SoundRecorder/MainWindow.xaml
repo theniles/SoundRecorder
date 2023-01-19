@@ -1,0 +1,41 @@
+﻿<Window x:Class="SoundRecorder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoundRecorder"
+        mc:Ignorable="d"
+        Title="Nile Sound Recorder v1"
+        Width="200"
+        Height="172"
+        Name="mainWnd"
+        ResizeMode="CanMinimize"
+        Icon="record.png">
+
+    <Window.Resources>
+
+        <Style x:Key="btn" TargetType="Button">
+            <Setter Property="Margin" Value="1,1,1,1"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <ToggleButton Margin="1,1,1,1" IsChecked="{Binding ElementName=mainWnd, Path=Topmost}">Pin Window</ToggleButton>
+            <Button Style="{StaticResource btn}" Click="Button_Click">Start recording</Button>
+            <Button ToolTip="{Binding ElementName=mainWnd, Path=SaveLocation}" Style="{StaticResource btn}" Click="Button_Click_1">Browse save location</Button>
+            <ComboBox Margin="1,1,1,1" Name="audioCombo" ItemsSource="{Binding ElementName=mainWnd, Path=InputAudios}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ProductName}">
+
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="detectBtn" Style="{StaticResource btn}" Click="Button_Click_2">Detect current audio devices</Button>
+            <Button Style="{StaticResource btn}" Click="Button_Click_3">Open save location</Button>
+        </StackPanel>
+    </Grid>
+</Window>
