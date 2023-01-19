@@ -9,8 +9,7 @@
         Width="200"
         Height="172"
         Name="mainWnd"
-        ResizeMode="CanMinimize"
-        Icon="record.png">
+        ResizeMode="CanMinimize">
 
     <Window.Resources>
 
